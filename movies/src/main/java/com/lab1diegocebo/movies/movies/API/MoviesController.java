@@ -96,7 +96,7 @@ public class MoviesController {
     }
     
     @GetMapping("/lang")
-    public String test(Locale locale){
+    public String lang(Locale locale){
         var test = ResourceBundle.getBundle("i18n\\movies", locale);
         return test.getString("Movie.test");
     }
