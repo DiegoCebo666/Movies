@@ -1,7 +1,6 @@
 package com.lab1diegocebo.movies.movies.API;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.lab1diegocebo.movies.movies.Model.Movie;
