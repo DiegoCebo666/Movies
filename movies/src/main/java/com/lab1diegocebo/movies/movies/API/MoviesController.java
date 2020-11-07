@@ -2,6 +2,8 @@ package com.lab1diegocebo.movies.movies.API;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Locale;
 
 import com.lab1diegocebo.movies.movies.Model.Movie;
 
@@ -91,5 +93,11 @@ public class MoviesController {
             }
         }
         return 0;
+    }
+    
+    @GetMapping("/lang")
+    public String test(Locale locale){
+        var test = ResourceBundle.getBundle("i18n\\movies", locale);
+        return test.getString("Movie.test");
     }
 }
