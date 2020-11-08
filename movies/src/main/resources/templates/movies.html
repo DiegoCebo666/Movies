@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#locales').change(function () {
+              let selectedOption = $('#locales').val();
+              if (selectedOption != '') {
+                  window.location.replace('?lang=' + selectedOption);
+              }
+            })
+        })
+    </script>
 </head>
 <body>
     <h1 th:text="#{Movie.test}"></h1>
+    <span th:text = "#{Lang.change}"></span>
+    <select id="locales">
+        <option></option>
+        <option value="en" th:text = "#{Lang.en}"></option>
+        <option value="es" th:text = "#{Lang.es}"></option>
+    </select>
 </body>
 </html>
