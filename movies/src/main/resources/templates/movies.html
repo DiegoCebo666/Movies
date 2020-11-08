@@ -13,6 +13,16 @@
                   window.location.replace('?lang=' + selectedOption);
               }
             })
+            $('#search').click(function () {
+                let titleVar = document.getElementById("titleInput").value
+                let yearVar = document.getElementById("yearInput").value
+                let result = document.getElementById("result")
+                $.getJSON("/movies", {title: titleVar, year: yearVar}, function(movies) { 
+                    if (movies != null) {
+                        result.innerText = JSON.stringify(movies) + " "
+                    }
+                });
+            })
         })
     </script>
 </head>
@@ -24,5 +34,11 @@
         <option value="en" th:text = "#{Lang.en}"></option>
         <option value="es" th:text = "#{Lang.es}"></option>
     </select>
+    <br><br>
+    <input type="text" th:placeholder="#{Movie.title}" id="titleInput">
+    <input type="number" th:placeholder="#{Movie.year}" id="yearInput">
+    <button id="search">Search</button>
+    <hr>
+    <div id="result" style="size: 10px; color: rebeccapurple;"></div>
 </body>
 </html>
